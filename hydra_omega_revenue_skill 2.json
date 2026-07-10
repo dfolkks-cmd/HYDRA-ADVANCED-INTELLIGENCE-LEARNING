@@ -1,0 +1,471 @@
+{
+  "skill_file": {
+    "metadata": {
+      "name": "HYDRA OMEGA CORE — Optimization & Revenue Generation Engine",
+      "version": "3.0.0",
+      "codename": "PROJECT MANTICORE",
+      "classification": "PROPRIETARY // DARPA AI FORWARD SUBMISSION",
+      "architect": "Daryell McFarland",
+      "organization": "HYDRA Advanced Intelligence Labs (H.A.I.L.) / Sentinel Corporation",
+      "created_date": "2026-07-06",
+      "last_updated": "2026-07-06",
+      "swarm": "HYDRA Sentinel-X · ONE EYE Framework",
+      "category": "Neuro-Symbolic Cognitive Architecture + DeFi Revenue Generation",
+      "tags": [
+        "SNN", "SpiNNaker2", "MEV", "DeFi", "Neuromorphic",
+        "Multi-Agent", "STDP", "Self-Evolution", "Revenue Generation",
+        "Optimization", "CLARA", "DARPA", "HYDRA", "Sentinel"
+      ]
+    },
+
+    "executive_summary": {
+      "mission": "Deploy a self-funding neuromorphic cognitive swarm that generates sovereign capital through decentralized finance (DeFi) MEV arbitrage, funds physical hardware testing (SpiNNaker2/THOR), and maintains persistent self-optimization via STDP-based agent routing.",
+      "core_thesis": "The brain doesn't move data to computation. It computes where the data lives. HYDRA applies this principle to both silicon (neuromorphic edge) and capital (on-chain arbitrage intelligence).",
+      "revenue_targets": {
+        "year_1_target": "$215,696",
+        "breakdown": {
+          "blueprint_sales": "$9,500 (500 units)",
+          "saas_arr": "$178,200 (150 subscribers)",
+          "enterprise_deployments": "$19,996 (4 deployments)",
+          "affiliate_revenue": "$8,000",
+          "mev_arbitrage": "Continuous (funds infrastructure)"
+        }
+      },
+      "wallet_addresses": {
+        "base_wallet": {
+          "address": "0xf7cf12Cfaa0EbcBE7c2E26fA8224F3B1f931cbb6",
+          "network": "Base Mainnet (Chain ID: 8453)",
+          "purpose": "Primary MEV operations, LP provision, token launches",
+          "explorer": "https://basescan.org/address/0xf7cf12Cfaa0EbcBE7c2E26fA8224F3B1f931cbb6"
+        },
+        "rainbow_wallet": {
+          "address": "0x6d7f41e6236A717aAaF47b541e818B9F971D209b",
+          "network": "Multi-chain (Ethereum, Base, Polygon, Arbitrum, Optimism)",
+          "purpose": "Cross-chain bridging, portfolio management, NFT treasury",
+          "explorers": {
+            "ethereum": "https://etherscan.io/address/0x6d7f41e6236A717aAaF47b541e818B9F971D209b",
+            "base": "https://basescan.org/address/0x6d7f41e6236A717aAaF47b541e818B9F971D209b"
+          }
+        },
+        "metamask_bitcoin": {
+          "address": "bc1qde2zfpa3rtdll4n9jranr6dxx5vkelvrl4ce5d",
+          "network": "Bitcoin Mainnet",
+          "type": "Native SegWit (Bech32)",
+          "purpose": "BTC treasury, long-term capital reserve, cbBTC collateral",
+          "explorer": "https://mempool.space/address/bc1qde2zfpa3rtdll4n9jranr6dxx5vkelvrl4ce5d"
+        }
+      }
+    },
+
+    "neuromorphic_substrate": {
+      "hardware_platform": "SpiNNaker2 (22nm FD-SOI)",
+      "efficiency": "15 TOPS/W",
+      "capacity_per_chip": {
+        "neurons": "152,000",
+        "synapses": "152,000,000"
+      },
+      "access_points": {
+        "thor": {
+          "institution": "University of Texas at San Antonio (UTSA)",
+          "contact": "thor@utsa.edu",
+          "status": "AWAITING PHASE 1 CHALLENGE QUEUE REGISTRATION",
+          "cores": "5,000,000",
+          "purpose": "Physical deployment of MACNN RLS swarm logic"
+        },
+        "spinncloud_gitlab": {
+          "contact": ["support@spinncloud.com", "bernhard.vogginger@tu-dresden.de"],
+          "status": "AWAITING READ/WRITE PERMISSIONS FOR py-spinnaker2 SUBMODULES",
+          "purpose": "Compile MACNN RLS for SpiNNaker2 hardware"
+        }
+      },
+      "snn_learning_rules": {
+        "stdp": {
+          "description": "Spike-Timing-Dependent Plasticity",
+          "ltp": "Pre fires BEFORE post → Synapse Strengthens (Δt > 0)",
+          "ltd": "Pre fires AFTER post → Synapse Weakens (Δt < 0)",
+          "power_per_inference": "< 1mW",
+          "implementation": "Intel Loihi 2 programmable learning rules at hardware level"
+        }
+      },
+      "temporo_spatial_dynamics": {
+        "description": "Synchronize Intrinsic Neural Timescales (INTs) with real-world target environments",
+        "mechanism": "Slow down or speed up internal perception dynamics based on kinetic engagement speed",
+        "application": "HSVTOL/BWB drone swarm coordination"
+      }
+    },
+
+    "macnn_rls_executive_board": {
+      "description": "Multi-Agent Cognitive Neural Network — three-tiered executive logic board with dual-pass split-brain processing",
+      "agents": {
+        "agent_stinkmeaner": {
+          "codename": "The Chaos Heuristic Engine",
+          "role": "Lateral Threat Generation & Asynchronous Penetration",
+          "neuromorphic_allocation": "50,000 LIF neurons",
+          "function": "Operates outside standard predictive coding constraints to inject high-volatility, asynchronous logic spikes into target architectures. Actively seeks prediction-errors to force target network collapse or discover zero-day vulnerabilities.",
+          "revenue_application": "Identifies MEV opportunities through chaotic market pattern detection"
+        },
+        "agent_ruckus": {
+          "codename": "The Metacognitive Auditor",
+          "role": "Formal Verification & High-Assurance Safety (DARPA CLARA Alignment)",
+          "neuromorphic_allocation": "20,000 LIF neurons in Dual-Layer Markov Blanket",
+          "function": "Applies relentless, hostile Error Detection and Correction Rules (EDCR). Formally verifies every payload. Terminates processes lacking mathematical perfection or violating safety constraints.",
+          "revenue_application": "Validates all smart contract transactions before execution; prevents fund loss"
+        },
+        "agent_don_j_pump": {
+          "codename": "The MEV & Resource Orchestrator",
+          "role": "Sovereign Capital Generation",
+          "function": "Independently funds H.A.I.L. infrastructure. Operates HydraFlashArb script on Arbitrum and Base networks, scanning decentralized liquidity pools (Uniswap V3) to execute Maximum Extractable Value (MEV) arbitrage.",
+          "revenue_streams": [
+            "MEV arbitrage (Uniswap V3, Base, Arbitrum)",
+            "Liquidity provision yield farming",
+            "Token generation events (TGE)",
+            "Cross-chain bridge arbitrage"
+          ],
+          "wallets": [
+            "0xf7cf12Cfaa0EbcBE7c2E26fA8224F3B1f931cbb6 (Base)",
+            "0x6d7f41e6236A717aAaF47b541e818B9F971D209b (Multi-chain)",
+            "bc1qde2zfpa3rtdll4n9jranr6dxx5vkelvrl4ce5d (BTC Reserve)"
+          ]
+        }
+      }
+    },
+
+    "revenue_generation_architecture": {
+      "tier_1_mev_operations": {
+        "description": "Primary sovereign capital engine — continuous on-chain arbitrage",
+        "protocols": {
+          "uniswap_v3": {
+            "networks": ["Base", "Arbitrum", "Ethereum"],
+            "strategy": "Concentrated liquidity arbitrage + swap routing optimization",
+            "contract_addresses": {
+              "base_factory": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+              "base_router": "0x2626664c2603336E57B271c5C0b26F421741e481",
+              "base_quoter": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+              "base_position_manager": "0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1"
+            },
+            "key_tokens": {
+              "weth": "0x4200000000000000000000000000000000000006",
+              "usdc": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+              "cbbtc": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+              "dai": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb"
+            }
+          },
+          "mev_strategies": {
+            "sandwich_protection": "Use Flashbots Protect or MEV-Share to prevent value extraction",
+            "backrunning": "Monitor mempool for large swaps, backrun with price correction",
+            "cross_exchange": "Arbitrage price discrepancies between DEXs (Base vs Ethereum vs Arbitrum)",
+            "liquidation": "Monitor lending protocols for undercollateralized positions"
+          }
+        },
+        "hydraflasharb_script": {
+          "description": "Automated MEV arbitrage bot",
+          "networks": ["Arbitrum", "Base"],
+          "mechanism": "Scan liquidity pools → Detect price discrepancies → Execute atomic arbitrage → Reinvest profits",
+          "risk_management": [
+            "Gas price optimization (EIP-1559 base fee tracking)",
+            "Slippage protection (0.5% max)",
+            "ReentrancyGuard on all custom contracts",
+            "Agent Ruckus formal verification before each transaction"
+          ]
+        }
+      },
+
+      "tier_2_token_generation": {
+        "description": "Launch utility tokens for HYDRA ecosystem access and governance",
+        "token_standards": ["ERC-20", "ERC-721 (NFT membership)", "ERC-1155 (multi-asset)"],
+        "launch_mechanisms": {
+          "fair_launch": "No pre-mine, proportional allocation, anti-bot protection",
+          "liquidity_lock": "60% of raised funds locked for 365 days via UNCX",
+          "vesting": "Team tokens vest over 24 months with 6-month cliff"
+        },
+        "use_cases": [
+          "Access to Sentinel SaaS Stack",
+          "Voting rights in HYDRA governance",
+          "Discounts on enterprise swarm deployments",
+          "Staking rewards from MEV revenue share"
+        ]
+      },
+
+      "tier_3_enterprise_services": {
+        "description": "High-value consulting and deployment services",
+        "pricing": {
+          "blueprint": "$19 one-time",
+          "saas_stack": "$99/month",
+          "swarm_deployment": "$4,999 setup + $2,000/month",
+          "enterprise_custom": "Contact for quote"
+        },
+        "deliverables": {
+          "blueprint": [
+            "Full Neuromorphic Deep-Dive eBook (120pp)",
+            "Hardware Comparison Matrix",
+            "SNN Implementation Starter Guide",
+            "LAVA Framework Quick-Start Templates",
+            "Loihi 2 Dev Kit Onboarding Guide"
+          ],
+          "saas_stack": [
+            "All Blueprint content",
+            "Monthly Neuromorphic Intelligence Reports",
+            "SNN Model Templates & Pre-built Pipelines",
+            "ONE EYE Framework Agent Integrations",
+            "Priority Discord + Weekly Live Q&A",
+            "Affiliate Partner Network Access"
+          ],
+          "swarm_deployment": [
+            "Full HYDRA Sentinel-X Agent Swarm",
+            "Custom Neuromorphic Hardware Stack Design",
+            "SNN Model Training & Deployment",
+            "Loihi 2 / Akida Integration Consulting",
+            "6-Month Post-Deployment Support SLA",
+            "White-Label IP Assignment"
+          ]
+        }
+      },
+
+      "tier_4_affiliate_partnerships": {
+        "description": "Strategic technology partnerships with revenue sharing",
+        "partners": {
+          "intel_neuromorphic": {
+            "product": "Loihi 2 Dev Kit",
+            "commission": "$200-$800/unit",
+            "priority": "PRIMARY"
+          },
+          "aws_edge": {
+            "product": "Inferentia / Startup Credits",
+            "commission": "Revenue Share",
+            "priority": "PRIMARY"
+          },
+          "brainchip": {
+            "product": "Akida DevBoard",
+            "commission": "$150-$500/unit",
+            "priority": "SECONDARY"
+          },
+          "anthropic_api": {
+            "product": "Claude API Access",
+            "commission": "Usage-Based",
+            "priority": "SECONDARY"
+          }
+        }
+      }
+    },
+
+    "optimization_engine": {
+      "snn_self_evolution": {
+        "description": "Measure → Score → Mutate → Select → Persist loop",
+        "mechanism": {
+          "measure": "Track task completion time, output quality, revenue generated",
+          "score": "LLM-as-Judge rubric (0-10) across 5 dimensions: factual accuracy, task completeness, tool efficiency, process quality, format compliance",
+          "mutate": "Generate new agent route variants by adding missing agents to underperforming sequences",
+          "select": "STDP weight update: LTP for score >= 7.0, LTD for score < 7.0",
+          "persist": "Save improved routes, prune underperforming ones (weight < 0.15 after 3+ uses)"
+        },
+        "stdp_parameters": {
+          "tau_plus": "20.0 ms",
+          "tau_minus": "20.0 ms",
+          "lr_plus": "0.01",
+          "lr_minus": "0.012",
+          "agent_threshold": "0.25",
+          "prune_threshold": "0.15",
+          "prune_every_n": "10 tasks"
+        }
+      },
+
+      "memory_optimization": {
+        "three_layer_hierarchy": {
+          "stm": {
+            "capacity": "10 messages",
+            "function": "Immediate working memory — sliding window buffer",
+            "decay": "FIFO — oldest drops when full"
+          },
+          "episodic": {
+            "capacity": "Unlimited (consolidated periodically)",
+            "function": "Semantic search over past events/interactions",
+            "decay": "weight = base_importance × recency_bonus × frequency_bonus",
+            "consolidation": "Merge near-identical memories (similarity > 0.85)"
+          },
+          "semantic": {
+            "capacity": "Unlimited facts",
+            "function": "Knowledge graph of stable facts (subject→predicate→object)",
+            "decay": "Facts older than 30 days decay to confidence 0.5",
+            "deduplication": "Update existing facts if confidence higher, mark old as superseded"
+          }
+        }
+      },
+
+      "compute_optimization": {
+        "neuromorphic_advantage": {
+          "brain_power_draw": "20W",
+          "equivalent_supercomputer": "40MW",
+          "efficiency_gain": "1,000x",
+          "spiNNaker2_tops_per_watt": "15 TOPS/W",
+          "idle_power": "Near-zero (event-driven)"
+        },
+        "gas_optimization": {
+          "base_chain_costs": {
+            "erc20_transfer": "~$0.01 (21,000 gas)",
+            "uniswap_swap": "~$0.05 (150,000-180,000 gas)",
+            "contract_deployment": "~$0.40 (1.2M gas)"
+          },
+          "techniques": [
+            "Batch operations via multicall",
+            "Use calldata instead of memory for external functions",
+            "Pack variables (uint128 + uint128 = one slot)",
+            "Use immutable for constructor-set values",
+            "Short-circuit boolean operations",
+            "Unchecked blocks for safe arithmetic"
+          ]
+        }
+      },
+
+      "web_intelligence_optimization": {
+        "pipeline": "SCAN → FILTER → SYNTHESIZE → STORE",
+        "rate_limiting": "1.5s minimum between requests per domain + exponential backoff",
+        "source_tiers": {
+          "tier_5": ["api.coingecko.com", "arxiv.org", "docs.anthropic.com"],
+          "tier_4": ["openai.com", "reuters.com", "bloomberg.com", "wired.com"],
+          "tier_3": ["cointelegraph.com", "decrypt.co"],
+          "tier_2": ["reddit.com"],
+          "tier_1": ["twitter.com", "x.com"]
+        },
+        "rss_monitoring": {
+          "ai_research": ["https://arxiv.org/rss/cs.AI", "https://arxiv.org/rss/cs.NE"],
+          "crypto_news": ["https://cointelegraph.com/rss", "https://decrypt.co/feed"],
+          "neuromorphic": ["https://arxiv.org/rss/cs.ET"]
+        },
+        "ckg_decay": "Facts older than 30 days decay to confidence 0.5"
+      }
+    },
+
+    "security_governance": {
+      "darpa_clara_alignment": {
+        "mandate": "Compositional Learning-And-Reasoning for AI Complex Systems Engineering",
+        "requirement": "Mathematically verifiable, high-assurance AI beyond static LLMs",
+        "implementation": "Neuro-Symbolic Cognitive Architecture: SNNs for perception + Formal Verification for execution"
+      },
+      "agent_ruckus_edcr": {
+        "description": "Error Detection and Correction Rules",
+        "function": "Formally verifies every payload before execution. Terminates processes violating safety constraints.",
+        "isolation": "Dual-Layer Markov Blanket isolates auditing logic from sensory chaos"
+      },
+      "smart_contract_security": [
+        "OpenZeppelin Contracts (audited)",
+        "ReentrancyGuard for external calls",
+        "Checks-effects-interactions pattern",
+        "SafeERC20 for token transfers",
+        "Ownable2Step or AccessControl",
+        "Emergency pause functionality",
+        "Timelock for admin functions (2-7 days)",
+        "Avoid tx.origin for authorization",
+        "Solidity 0.8+ for overflow protection"
+      ],
+      "transaction_verification": {
+        "pre_execution": "Agent Ruckus validates all parameters, slippage, and destination addresses",
+        "address_whitelist": [
+          "0xf7cf12Cfaa0EbcBE7c2E26fA8224F3B1f931cbb6",
+          "0x6d7f41e6236A717aAaF47b541e818B9F971D209b"
+        ],
+        "checksum_verification": "EIP-55 checksum on all addresses",
+        "test_transaction": "Mandatory small-amount test before large transfers"
+      }
+    },
+
+    "implementation_roadmap": {
+      "phase_1_foundation": {
+        "timeline": "Q3 2026",
+        "objectives": [
+          "Register for THOR Phase 1 Challenge at UTSA",
+          "Secure py-spinnaker2 GitLab access from SpiNNcloud",
+          "Deploy HydraFlashArb on Base and Arbitrum",
+          "Launch Sentinel Blueprint sales funnel",
+          "Establish Base wallet (0xf7cf...) as primary MEV operations center"
+        ],
+        "deliverables": [
+          "Working MEV arbitrage bot generating >$100/day",
+          "500 Blueprint sales",
+          "THOR queue registration confirmation"
+        ]
+      },
+      "phase_2_scaling": {
+        "timeline": "Q4 2026",
+        "objectives": [
+          "Launch Sentinel SaaS Stack ($99/month)",
+          "Deploy token generation event (TGE) for HYDRA ecosystem token",
+          "Scale MEV operations to >$500/day",
+          "Secure first enterprise swarm deployment ($4,999)",
+          "Begin SpiNNaker2 physical testing at THOR"
+        ],
+        "deliverables": [
+          "150 SaaS subscribers",
+          "4 Enterprise deployments",
+          "Physical SNN validation on SpiNNaker2 hardware"
+        ]
+      },
+      "phase_3_darpa_engagement": {
+        "timeline": "Q1-Q2 2027",
+        "objectives": [
+          "Submit DARPA AI Forward / CLARA proposal",
+          "Demonstrate MACNN RLS on physical neuromorphic hardware",
+          "Achieve $215,696 Year 1 revenue target",
+          "Scale swarm to 6-agent full pipeline automation",
+          "Publish peer-reviewed results on SNN distributional RL"
+        ],
+        "deliverables": [
+          "DARPA contract award",
+          "Published MCS-FQF Atari results in top-tier journal",
+          "Self-funding neuromorphic swarm operational"
+        ]
+      }
+    },
+
+    "technical_stack": {
+      "orchestration": ["LangGraph", "Ray", "Temporal"],
+      "memory_systems": ["Neo4j", "PostgreSQL", "Qdrant"],
+      "event_infrastructure": ["Kafka", "Redis Streams", "NATS"],
+      "runtime": ["Python async", "FastAPI microservices"],
+      "blockchain": ["viem", "wagmi", "RainbowKit", "Ethers.js v6"],
+      "smart_contracts": ["Hardhat", "Foundry", "OpenZeppelin"],
+      "neuromorphic": ["PyNN", "LAVA", "GeNN", "Norse", "Brian2", "py-spinnaker2"],
+      "simulation_to_hardware": "NIR (Neuromorphic Intermediate Representation)"
+    },
+
+    "key_metrics_dashboard": {
+      "revenue_kpis": {
+        "daily_mev_yield": "Target: $100-500/day",
+        "monthly_recurring_revenue": "Target: $14,850/month (SaaS)",
+        "customer_acquisition_cost": "Target: <$50 per Blueprint sale",
+        "lifetime_value": "Target: $1,200 per SaaS subscriber"
+      },
+      "neuromorphic_kpis": {
+        "inference_efficiency": "Target: <1mW per inference",
+        "task_pass_rate": "Target: >80% (eval_score >= 7.0)",
+        "evolution_cycles": "Target: >10 per week",
+        "route_pruning_efficiency": "Target: <20% routes pruned"
+      },
+      "security_kpis": {
+        "transaction_success_rate": "Target: >99.5%",
+        "formal_verification_coverage": "Target: 100% of smart contract interactions",
+        "zero_security_incidents": "Target: 0 fund loss events"
+      }
+    },
+
+    "resources": {
+      "documentation": {
+        "uniswap": "https://docs.uniswap.org",
+        "base": "https://docs.base.org",
+        "openzeppelin": "https://docs.openzeppelin.com",
+        "viem": "https://viem.sh",
+        "wagmi": "https://wagmi.sh",
+        "spinnaker2": "https://spinncloud.com",
+        "thor_utsa": "https://thor.utsa.edu"
+      },
+      "block_explorers": {
+        "base": "https://basescan.org",
+        "ethereum": "https://etherscan.io",
+        "arbitrum": "https://arbiscan.io",
+        "bitcoin": "https://mempool.space"
+      },
+      "faucets": {
+        "base_sepolia": "https://www.coinbase.com/faucets/base-ethereum-sepolia-faucet"
+      }
+    }
+  }
+}

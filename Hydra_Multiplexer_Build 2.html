@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hydra Multiplexer Build</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+            background-color: #0a0a0a;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            color: #e0e0e0;
+            background-color: #0a0a0a;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #8B0000;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .logo-title {
+            font-size: 24pt;
+            font-weight: 900;
+            color: #8B0000;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .logo-subtitle {
+            font-size: 10pt;
+            color: #FFD700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .doc-meta {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: right;
+            font-size: 9pt;
+            color: #777;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .meta-highlight {
+            color: #FFD700;
+        }
+        h1 {
+            color: #FFD700;
+            font-size: 16pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-left: 5px solid #8B0000;
+            padding-left: 10px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        p {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: #cccccc;
+        }
+        .file-header {
+            background-color: #8B0000;
+            color: #FFD700;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 11pt;
+            margin-top: 20px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        pre {
+            background-color: #141414;
+            border: 1px solid #333;
+            border-top: none;
+            padding: 15px;
+            margin: 0 0 20px 0;
+            overflow-x: auto;
+            font-size: 8.5pt;
+            line-height: 1.4;
+            color: #00ff00;
+            page-break-inside: avoid;
+        }
+        .comment { color: #888; }
+        .keyword { color: #FFD700; }
+        .string { color: #ff8c00; }
+        .function { color: #00bfff; }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 8pt;
+            color: #555;
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-title">Hydra Advanced Intelligence Labs</div>
+        <div class="logo-subtitle">Sentinel Corp &bull; Ingestion Matrix Build</div>
+    </div>
+
+    <div class="doc-meta">
+        DOCUMENT ID: <span class="meta-highlight">HAIL-MUX-001</span><br>
+        ARCHITECT: <span class="meta-highlight">DARYELL MCFARLAND</span><br>
+        TARGET ENVIRONMENT: <span class="meta-highlight">BASE / ARBITRUM MEMPOOL</span>
+    </div>
+
+    <p>
+        The following codebase defines the Hydra Multiplexer. It is written in Rust to guarantee memory safety and zero-cost abstractions. The application connects to a Layer-2 WebSocket RPC, streams the mempool continuously, and bifurcates the data stream based on transaction targets. Contract creations are piped to the ONE EYE cognitive swarm for vulnerability fuzzing, while high-value DEX interactions are routed to the MEV execution engine.
+    </p>
+
+    <h1>Project Setup & Dependencies</h1>
+    <p>Initialize the project using <code>cargo new hydra_multiplexer</code> and replace the contents of the generated files with the code below.</p>
+
+    <div class="file-header">Cargo.toml</div>
+    <pre>
+[package]
+name = <span class="string">"hydra_multiplexer"</span>
+version = <span class="string">"0.1.0"</span>
+edition = <span class="string">"2021"</span>
+authors = [<span class="string">"Daryell McFarland"</span>]
+
+[dependencies]
+<span class="comment"># Async runtime for high-concurrency</span>
+tokio = { version = <span class="string">"1.28"</span>, features = [<span class="string">"full"</span>] }
+<span class="comment"># Industry-standard Ethereum interaction library</span>
+ethers = { version = <span class="string">"2.0"</span>, features = [<span class="string">"ws"</span>, <span class="string">"rustls"</span>] }
+<span class="comment"># Logging and error handling</span>
+tracing = <span class="string">"0.1"</span>
+tracing-subscriber = <span class="string">"0.3"</span>
+anyhow = <span class="string">"1.0"</span>
+    </pre>
+
+    <h1>Mempool Routing Logic</h1>
+
+    <div class="file-header">src/main.rs</div>
+    <pre>
+<span class="keyword">use</span> ethers::prelude::*;
+<span class="keyword">use</span> std::sync::Arc;
+<span class="keyword">use</span> anyhow::Result;
+
+<span class="comment">// ----------------------------------------------------------------------------
+// CONFIGURATION
+// Replace with the dedicated bare-metal RPC WebSocket URL.
+// ----------------------------------------------------------------------------</span>
+<span class="keyword">const</span> WSS_URL: &str = <span class="string">"wss://YOUR_BASE_OR_ARBITRUM_NODE_WSS_URL"</span>;
+
+<span class="comment">// Target addresses for the Kinetic MEV Arm (e.g., Aerodrome Router on Base)</span>
+<span class="keyword">const</span> AERODROME_ROUTER: &str = <span class="string">"0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43"</span>;
+
+#[tokio::main]
+<span class="keyword">async fn</span> <span class="function">main</span>() -> Result&lt;()&gt; {
+    <span class="comment">// Initialize logging</span>
+    tracing_subscriber::fmt::init();
+    tracing::info!(<span class="string">"HYDRA MULTIPLEXER INITIALIZED. ENGAGING WSS STREAM."</span>);
+
+    <span class="comment">// Connect to the WebSocket Provider</span>
+    <span class="keyword">let</span> provider = Provider::&lt;Ws&gt;::connect(WSS_URL).<span class="keyword">await</span>?;
+    <span class="keyword">let</span> client = Arc::new(provider);
+
+    <span class="comment">// Subscribe to the public mempool (pending transactions)</span>
+    <span class="keyword">let</span> <span class="keyword">mut</span> stream = client.subscribe_pending_txs().<span class="keyword">await</span>?;
+    tracing::info!(<span class="string">"SUBSCRIPTION ACTIVE. AWAITING TELEMETRY..."</span>);
+
+    <span class="comment">// Process the stream as fast as it arrives</span>
+    <span class="keyword">while let</span> Some(tx_hash) = stream.next().<span class="keyword">await</span> {
+        <span class="keyword">let</span> client_clone = client.clone();
+        
+        <span class="comment">// Spawn an asynchronous task for every transaction to prevent blocking</span>
+        tokio::spawn(<span class="keyword">async move</span> {
+            <span class="keyword">if let</span> Ok(Some(tx)) = client_clone.get_transaction(tx_hash).<span class="keyword">await</span> {
+                <span class="function">route_transaction</span>(tx).<span class="keyword">await</span>;
+            }
+        });
+    }
+
+    Ok(())
+}
+
+<span class="comment">// ----------------------------------------------------------------------------
+// BIFURCATION LOGIC
+// Routes the payload to ONE EYE (Cognitive) or Sentinel (Kinetic)
+// ----------------------------------------------------------------------------</span>
+<span class="keyword">async fn</span> <span class="function">route_transaction</span>(tx: Transaction) {
+    <span class="keyword">match</span> tx.to {
+        <span class="comment">// Condition 1: tx.to is null -> Contract Creation</span>
+        None => {
+            tracing::warn!(
+                <span class="string">"[COGNITIVE ARM] Contract Deployment Detected: {:?}"</span>,
+                tx.hash
+            );
+            <span class="function">pipe_to_one_eye_swarm</span>(tx).<span class="keyword">await</span>;
+        }
+        
+        <span class="comment">// Condition 2: tx.to matches targeted liquidity routers</span>
+        Some(to_addr) => {
+            <span class="keyword">let</span> to_str = format!(<span class="string">"{:?}"</span>, to_addr);
+            <span class="keyword">if</span> to_str.to_lowercase() == AERODROME_ROUTER.to_lowercase() {
+                tracing::info!(
+                    <span class="string">"[KINETIC ARM] High-Value DEX Interaction: {:?}"</span>,
+                    tx.hash
+                );
+                <span class="function">pipe_to_mev_engine</span>(tx).<span class="keyword">await</span>;
+            }
+        }
+    }
+}
+
+<span class="comment">// ----------------------------------------------------------------------------
+// OUTBOUND PIPES
+// ----------------------------------------------------------------------------</span>
+<span class="keyword">async fn</span> <span class="function">pipe_to_one_eye_swarm</span>(tx: Transaction) {
+    <span class="comment">// Extracts the raw bytecode from tx.input and pushes it to the 
+    // local message broker (e.g., Kafka/Redis) feeding the ONE EYE agents.
+    // Agent 1 will instantly begin decompilation and CFG mapping.</span>
+    <span class="keyword">let</span> _bytecode = tx.input;
+    <span class="comment">// TODO: Implement ZeroMQ/Redis push logic here</span>
+}
+
+<span class="keyword">async fn</span> <span class="function">pipe_to_mev_engine</span>(tx: Transaction) {
+    <span class="comment">// Extracts transaction value, gas price, and input calldata.
+    // Pushes to the Sentinel Arbitrage engine to calculate optimal
+    // sandwich or front-run parameters within the current block.</span>
+    <span class="keyword">let</span> _calldata = tx.input;
+    <span class="keyword">let</span> _gas_price = tx.gas_price;
+    <span class="comment">// TODO: Implement ZeroMQ/Redis push logic here</span>
+}
+    </pre>
+
+    <div class="footer">
+        CONFIDENTIAL & PROPRIETARY &bull; HYDRA ADVANCED INTELLIGENCE LABS &bull; DARYELL MCFARLAND
+    </div>
+
+</body>
+</html>
